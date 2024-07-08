@@ -17,18 +17,18 @@ const formateDate = (dateString) => {
   return formatDistanceToNow(date, { addSuffix: true }).replace("about", "");
 };
 
-const VideoCard = ({ info }) => {
+const SideVideoCard = ({ info }) => {
   const { snippet, statistics } = info;
   const { title, channelTitle, thumbnails, publishedAt } = snippet;
 
   return (
-    <div className="flex flex-col lg:w-[372px] h-[330px] lg:m-4 md:m-4 md:w-[250px] sm:w-[250px] sm:h-[330px] sm:m-2">
+    <div className="flex lg:flex-row w-[100%] my-3">
       <img
-        className="w-full rounded-xl lg:h-[210px] sm:h-[190px]"
+        className="w-[150px] rounded-xl h-[100px] object-cover"
         src={thumbnails.standard.url}
         alt="thumbnail"
       />
-      <ul className="mt-1 px-1">
+      <ul className="ml-1 px-1">
         <div className="flex items-start justify-between">
           <li className="font-bold mr-1">{title}</li>
           <li>
@@ -49,4 +49,4 @@ const VideoCard = ({ info }) => {
   );
 };
 
-export default VideoCard;
+export default SideVideoCard;

@@ -1,10 +1,10 @@
 // import { useEffect, useState } from "react";
 // import { YOUTUBE_VIDEO_API } from "../utils/Contants";
-import VideoCard from "./VideoCard";
+import SideVideoCard from "./SideVideoCard";
 import { Link } from "react-router-dom";
 import useVideos from "../utils/useVideos";
 
-const VideoContainer = () => {
+const SideVideoContainer = () => {
   const videos = useVideos();
 
   // const [videos, setVideos] = useState([]);
@@ -21,11 +21,11 @@ const VideoContainer = () => {
   // };
 
   return (
-    <div className="h-full flex flex-wrap">
+    <div className="h-full flex flex-col w-full lg:px-[1%] sm:px-[2%] md:px-[10%] mt-2">
       {videos.length > 0 ? (
         videos.map((video) => (
           <Link key={video.id} to={"/watch?v=" + video.id}>
-            <VideoCard info={video} />
+            <SideVideoCard info={video} />
           </Link>
         ))
       ) : (
@@ -35,4 +35,4 @@ const VideoContainer = () => {
   );
 };
 
-export default VideoContainer;
+export default SideVideoContainer;
